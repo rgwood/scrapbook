@@ -1,7 +1,7 @@
 # Linux notes
 
 ## Ubuntu
-Setting up SSH: needed to install SSH daemon `sudo apt-get install ssh`
+Setting up SSH: needed to install SSH daemon `sudo apt-get install ssh`.
 
 ## Fedora
 
@@ -34,9 +34,11 @@ sudo dnf install osquery
 
 Installed Fish and made it my default shell. `chsh` is the usual command to change shells but it's not installed by default, argh.
 
-Install `chsh`: 
-```
+```bash
+# Install chsh
 sudo dnf install util-linux-user
+# Use Fish by default
+chsh -s /usr/bin/fish
 ```
 
 ### Permissions
