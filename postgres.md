@@ -2,7 +2,7 @@
 
 `psql -d scrapbook -U reilly -h 10.211.55.7`
 
-# Enabling connections
+## Enabling connections
 
 Edit `/var/lib/pgsql/data/pg_hba.conf`
 
@@ -23,3 +23,7 @@ Edit `/var/lib/pgsql/data/postgresql.conf`, set `listen_addresses = '*'`
 Restart: `systemctl restart postgresql`
 
 View status and recent logs: `systemctl status postgresql`
+
+## Passwords
+
+[PG passwords can be stored in ~/.pgpass](https://www.postgresql.org/docs/8.3/libpq-pgpass.html).
