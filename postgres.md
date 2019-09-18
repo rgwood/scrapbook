@@ -57,11 +57,19 @@ Postgres has a single permissioning object: `role`. `role`s encapsulate logins, 
 * Grant database connect permission: `GRANT CONNECT ON DatabaseName TO RoleName`
 * Add a role to another role: `GRANT Role1 to Role2`
 
-## Frequently used `psql` metacommands
+## `psql` cheat sheet
 
 * \d lists relations
     * \dt for just tables, \dv for just views, \df for functions...
     * can put a name pattern after \d, example: `\d prefix*`
-    * \d+ to get more info, including view definition
+    * add  to the metacommand + to get more info, including view definition
 
 * \l lists databases
+
+Start `psql` with `-E` to show the underlying queries it's using
+
+## Case sensitivity
+
+Postgres lower-cases unquoted identifiers. Use double quotes to preserve case.
+
+Ex: `DROP ROLE publicReader` will attempt to drop a role named "publicreader", `DROP ROLE "publicReader";` correctly drops "public**R**eader"
