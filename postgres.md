@@ -27,3 +27,41 @@ View status and recent logs: `systemctl status postgresql`
 ## Passwords
 
 [PG passwords can be stored in ~/.pgpass](https://www.postgresql.org/docs/8.3/libpq-pgpass.html).
+
+## Data locations
+
+Tablespace: location on disk where data is stored. By default, `pg_default` and `pg_global` tablespaces are created in subfolders of `data_directory`.
+
+```sql
+select * from pg_tablespace;
+```
+
+```sql
+--pg_default
+select setting||'/base' from pg_settings where name='data_directory';
+--pg_global
+select setting||'/global' from pg_settings where name='data_directory';
+```
+
+## Partitioning
+
+Kinda annoying that you have to manually define each partition. If you're partitioning by date, would be nice to have new partitions auto-generated.
+
+CHECK constrains and partition bounds are separate things - but it can be useful to implement both.
+
+## Permissioning
+
+Postgres has a single permissioning object: `role`. `role`s encapsulate logins, users, and groups. Much simpler than SQL Server.
+
+* Grant login permission: `CREATE ROLE Name WITH LOGIN`
+* Grant database connect permission: `GRANT CONNECT ON DatabaseName TO RoleName`
+* Add a role to another role: `GRANT Role1 to Role2`
+
+## Frequently used `psql` metacommands
+
+* \d lists relations
+    * \dt for just tables, \dv for just views, \df for functions...
+    * can put a name pattern after \d, example: `\d prefix*`
+    * \d+ to get more info, including view definition
+
+* \l lists databases
