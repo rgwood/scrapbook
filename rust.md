@@ -86,5 +86,17 @@ Slices are inclusive, exclusive. Grr
 
 ## Error handling
 
-Can match on Result types to handle things very explicitly
-Calling `unwrap()` or `expect()` on a result panics if `Err`. Usually best to  use `expect()` b/c you give it an error message to use when panicking
+Can match on Result types to handle things very explicitly.
+
+More idiomatic: call `unwrap()` or `expect()` on a result to panic if `Err`. Usually best to  use `expect()` b/c you give it an error message to use when panicking
+
+The `?` operator is a common shortcut for propagating errors. Ex:
+
+```rust
+fn open_file() -> std::io::Result<()> {
+  let file = File::open("input.txt")?;
+  Ok(())
+}
+```
+
+This assigns the OK value to `file` if the `open()` call succeeds. If `open()` returns an `Err`, then we make the `open_file()` call return that `Err`.
