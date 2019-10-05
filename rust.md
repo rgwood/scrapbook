@@ -100,3 +100,38 @@ fn open_file() -> std::io::Result<()> {
 ```
 
 This assigns the OK value to `file` if the `open()` call succeeds. If `open()` returns an `Err`, then we make the `open_file()` call return that `Err`.
+
+Of course, `?` can only be used inside functions which return `Result`.
+
+## Traits
+
+Traits are like interfaces. Specify a method signature.
+Traits can have default implementations.
+Can only implement traits on type if trait OR type is local to our crate.
+
+To specify parameters of types that implement traits: `fn my_function(item: impl MyTrait)`
+This is syntactic sugar for a longer form `fn my_function<T: MyTrait>(item: T)`
+Can specify multiple traits with `+`: `fn my_function(item: impl MyTrait1 + MyTrait2)`
+Alternate syntax: `where` clauses. 
+```rust
+fn my_function<T>(t: T)
+  where T: MyTrait1 + MyTrait2
+```
+
+## Using local unpublished crates
+
+https://stackoverflow.com/questions/33025887/how-to-use-a-local-unpublished-crate
+
+Edit Cargo.toml:
+
+```toml
+[dependencies.my_lib]
+path = "../my_lib"
+```
+
+or the equivalent alternate TOML:
+
+```toml
+[dependencies]
+my_lib = { path = "../my_lib" }
+```
