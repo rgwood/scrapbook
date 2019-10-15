@@ -135,3 +135,9 @@ or the equivalent alternate TOML:
 [dependencies]
 my_lib = { path = "../my_lib" }
 ```
+
+## Lifetimes
+
+Possibly the hardest thing to understand about Rust.
+
+Lifetimes on function parameters map to lifetime of return value. Telling the compiler which parameters could be returned by the function. Mapping input to output

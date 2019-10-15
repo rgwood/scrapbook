@@ -29,7 +29,6 @@ sudo dnf config-manager --add-repo https://pkg.osquery.io/rpm/osquery-s3-rpm.rep
 sudo dnf install osquery
 ```
 
-
 ### Fish shell
 
 Installed Fish and made it my default shell. `chsh` is the usual command to change shells but it's not installed by default, argh.
@@ -54,3 +53,9 @@ usermod -aG postgres parallels
 chmod -R g+rx /var/lib/pgsql
 ```
 Then login/logout.
+
+## DNF/Yum
+
+Can browse packages with `dnf search`. For example:
+
+`dnf search java | grep -e 'java.*openjdk'`
