@@ -59,3 +59,12 @@ Then login/logout.
 Can browse packages with `dnf search`. For example:
 
 `dnf search java | grep -e 'java.*openjdk'`
+
+## System logs
+
+Use `journalctl` to view. Good cheat sheet: https://www.cheatography.com/airlove/cheat-sheets/journalctl/
+
+`-b` to show current boot messages.
+
+`jour­nalctl -p err`
+Shows you all messages marked as error, critical, alert, or emerge­ncy
