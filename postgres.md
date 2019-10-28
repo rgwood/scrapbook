@@ -1,10 +1,20 @@
-# Postgres (WIP)
+# Postgres Cheat Sheet
 
-`psql -d scrapbook -U reilly -h 10.211.55.7`
+`psql|pgcli -d database_name -U user_name -h host_name`
+
+
+## Install (Ubuntu)
+
+`sudo apt-get install postgresql postgresql-contrib`
+
+## Config location
+
+On Ubuntu for pg 11: `/etc/postgresql/11/main/postgresql.conf`
+Can check from psql: `SHOW config_file;`
 
 ## Enabling connections
 
-Edit `/var/lib/pgsql/data/pg_hba.conf`
+Edit `pg_hba.conf` 
 
 Allow username/pass logins from localhost and anything on the private network: 
 ```
@@ -24,7 +34,11 @@ Restart: `systemctl restart postgresql`
 
 View status and recent logs: `systemctl status postgresql`
 
+
+
 ## Passwords
+
+Can give a Postgres user a password with `\password test_user` in `psql`
 
 [PG passwords can be stored in ~/.pgpass](https://www.postgresql.org/docs/8.3/libpq-pgpass.html).
 
@@ -56,6 +70,8 @@ Postgres has a single permissioning object: `role`. `role`s encapsulate logins, 
 * Grant login permission: `CREATE ROLE Name WITH LOGIN`
 * Grant database connect permission: `GRANT CONNECT ON DatabaseName TO RoleName`
 * Add a role to another role: `GRANT Role1 to Role2`
+
+View roles: `pg_roles` view;
 
 ## `psql` cheat sheet
 
