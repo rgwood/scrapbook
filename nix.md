@@ -9,3 +9,11 @@ Symlinks are just aliases - they stop working if original file is deleted. Hard 
 ## Grep
 
 Use regular expressions with -e: `grep -e 'java.*openjdk'`
+
+## Show filesizes in human units
+
+`ls -lh`
+
+## List processes that have a file open
+
+`fuser file_name`
