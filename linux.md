@@ -1,5 +1,9 @@
 # Linux notes
 
+## Version
+
+`lsb_release -a`
+
 ## Ubuntu
 Setting up SSH: needed to install SSH daemon `sudo apt-get install ssh`.
 

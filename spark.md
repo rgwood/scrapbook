@@ -27,3 +27,5 @@ Update `build.sbt` to use the same major Scala version as Spark:
 ```
 scalaVersion := "2.11.12"
 ```
+
+I think this means you have to rebuild every application when you upgrade to a new Spark version, ugh.
