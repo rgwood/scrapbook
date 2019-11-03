@@ -24,4 +24,4 @@ This is OK for simple syscalls, but not all; POSIX syscalls and datatypes can va
 
 ## Testing
 
-`dotnet test` is a bit slow – takes about 1.5s no matter what. Tried mstest and nunit, same result. NUnit seems to have better integration with VS Code (a nice GUI option to run tests), and for some reason I can't get OmniSharp to autocomplete things for MSTest.
+`dotnet test` is a bit slow – takes about 1.5s no matter what. Tried mstest and nunit, same result.
