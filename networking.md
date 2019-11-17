@@ -32,3 +32,22 @@ Some of the most common ones:
 
 * Loopback range (connect to self): 127.0.0.0/8
 * Private network: 10.0.0.0/8, 192.168.0.0/16
+
+## General port troubleshooting
+
+What's listening on port 5001? `lsof -i :PORT_NUM` to the rescue.
+
+```
+lsof -i :5001
+COMMAND  PID       USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+ports   6224 reillywood  153u  IPv4 0x8ae410bf4cd93f05      0t0  TCP localhost:commplex-link (LISTEN)
+ports   6224 reillywood  154u  IPv6 0x8ae410bf48ea98d5      0t0  TCP localhost:commplex-link (LISTEN)
+```
+
+Then `ps -p PID` to show more deets about PID 6224:
+
+```
+ps -p 6224
+  PID TTY           TIME CMD
+ 6224 ttys005    0:00.77 /Users/reillywood/source/temp/ports/bin/Debug/netcoreapp3.0/ports
+```
