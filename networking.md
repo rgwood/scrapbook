@@ -51,3 +51,7 @@ ps -p 6224
   PID TTY           TIME CMD
  6224 ttys005    0:00.77 /Users/reillywood/source/temp/ports/bin/Debug/netcoreapp3.0/ports
 ```
+
+## scp for remote filecopy
+
+`scp your_username@remotehost:foo.txt /some/local/directory`
