@@ -44,11 +44,21 @@ sudo dnf install util-linux-user
 chsh -s /usr/bin/fish
 ```
 
-### Permissions
+### Permissions and Users
 
 By default, can’t read /var/lib/pgsql directory with my regular account - that’s a giant pain.
 
 Fix: add myself (the “parallels” account) to the postgres group and grant group read+execute permissions on everything in the folder. Can’t give write access to the group, Postgres doesn't allow that.
+
+Users and their group IDs: stored in `/etc/passwd`. Fields separated by colons:
+
+1. Username
+1. Password: An x character indicates that encrypted password is stored in /etc/shadow file.
+1. User ID (UID): Each user must be assigned a user ID (UID). UID 0 (zero) is reserved for root and UIDs 1-99 are reserved for other predefined accounts. Further UID 100-999 are reserved by system for administrative and system accounts/groups.
+1. Group ID (GID): The primary group ID (stored in /etc/group file)
+1. User ID Info: The comment field. It allow you to add extra information about the users such as user’s full name, phone number etc. This field use by finger command.
+1. Home directory: The absolute path to the directory the user will be in when they log in. If this directory does not exists then users directory becomes /
+1. Command/shell
 
 ```bash
 # Add parallels user to postgres group
