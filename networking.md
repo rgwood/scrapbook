@@ -32,6 +32,7 @@ Some of the most common ones:
 
 * Loopback range (connect to self): 127.0.0.0/8
 * Private network: 10.0.0.0/8, 192.168.0.0/16
+* Link-local (between 2 hosts, no DHCP server): 169.254.0.0/16
 
 ## General port troubleshooting
 
@@ -55,3 +56,13 @@ ps -p 6224
 ## scp for remote filecopy
 
 `scp your_username@remotehost:foo.txt /some/local/directory`
+
+## VPN
+
+OpenVPN is pretty easy to use from a CLI. Get a `.ovpn` config file from provider, then:
+
+`sudo openvpn --config "Config.ovpn"`
+
+## Get external IP address quickly
+
+`curl ifconfig.me`
