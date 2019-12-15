@@ -60,6 +60,8 @@ Users and their group IDs: stored in `/etc/passwd`. Fields separated by colons:
 1. Home directory: The absolute path to the directory the user will be in when they log in. If this directory does not exists then users directory becomes /
 1. Command/shell
 
+Easy to see group membership with `groups username`
+
 ```bash
 # Add parallels user to postgres group
 usermod -aG postgres parallels
