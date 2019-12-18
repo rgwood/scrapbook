@@ -70,6 +70,8 @@ chmod -R g+rx /var/lib/pgsql
 ```
 Then login/logout.
 
+Change group ownership: `chgrp groupname directorypath`
+
 ## DNF/Yum
 
 Can browse packages with `dnf search`. For example:
