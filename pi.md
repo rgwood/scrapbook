@@ -11,7 +11,7 @@ Samba: `/etc/samba/smb.conf`
 Transmission: `~/.config/transmission-daemon/settings.json`
 
 ## Backups
-
+`crontab -e`
 `0 13 * * * rsync /etc/samba/smb.conf /mnt/external/PiBackup/Daily/`
 
 ### Disks
