@@ -10,6 +10,10 @@ CPU: `cat /sys/class/thermal/thermal_zone0/temp` (Celsius, divide by 1000)
 Samba: `/etc/samba/smb.conf`
 Transmission: `~/.config/transmission-daemon/settings.json`
 
+## Backups
+
+`0 13 * * * rsync /etc/samba/smb.conf /mnt/external/PiBackup/Daily/`
+
 ### Disks
 
 List block devices:
