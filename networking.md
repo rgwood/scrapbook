@@ -63,6 +63,10 @@ OpenVPN is pretty easy to use from a CLI. Get a `.ovpn` config file from provide
 
 `sudo openvpn --config "Config.ovpn"`
 
+Can save username/password in a text file (separated by newline) and then specify the filename in the .ovpn config like:
+
+`auth-user-pass myUserNameAndPassword.txt`
+
 ## Get external IP address quickly
 
 `curl ifconfig.me`
